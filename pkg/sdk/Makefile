@@ -71,13 +71,13 @@ sdk.buildsys : sdk.unpack
 	@$(MAKE_STAMP)
 
 sdk.patch : sdk.buildsys
-ifneq ($(WIND_RELEASE_ID),SR0660)
+ifeq ($(WIND_RELEASE_ID),SR0640)
 	@$(call echo_action,Applying SDK patches,$*)
 	$(call sdk_fix,$*)
 endif
 	@$(call echo_action,Applying VxWorks patches,$*)
 	$(call vxworks_fix,$*)
-ifneq ($(WIND_RELEASE_ID),SR0660)
+ifeq ($(WIND_RELEASE_ID),SR0640)
 	@$(call echo_action,Applying Compiler patches,$*)
 	$(call compiler_fix,$*)
 	@$(call echo_action,Applying Python patches,$*)
@@ -93,9 +93,11 @@ sdk.build : sdk.configure
 
 sdk.install : sdk.build
 	@$(call echo_action,Deploying SDK artifacts,$*)
-	cp $(3PP_DEVELOP_USR_DIR)/bin/* $(DEPLOY_DIR)/bin/.
-	cp $(3PP_DEVELOP_USR_DIR)/lib/lib*.so* $(DEPLOY_DIR)/lib/.
-	cp -r $(3PP_DEVELOP_USR_DIR)/lib/python3.8 $(DEPLOY_DIR)/lib/.
+	if [ -d $(3PP_DEVELOP_USR_DIR)/bin ]; then \
+		cp $(3PP_DEVELOP_USR_DIR)/bin/* $(DEPLOY_DIR)/bin/. ; \
+		cp $(3PP_DEVELOP_USR_DIR)/lib/lib*.so* $(DEPLOY_DIR)/lib/. ; \
+		cp -r $(3PP_DEVELOP_USR_DIR)/lib/python3.8 $(DEPLOY_DIR)/lib/. ; \
+	fi
 	@$(MAKE_STAMP)
 
 include $(WIND_USR_MK)/rules.packages.mk

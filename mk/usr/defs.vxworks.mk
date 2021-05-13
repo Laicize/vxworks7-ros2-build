@@ -26,7 +26,7 @@ $(error WIND_CC_SYSROOT is not defined)
 endif
 
 # introduced in 21.03
-WIND_RELEASE_ID ?= SR0660
+WIND_RELEASE_ID ?= 21.03
 
 ## Add missing variablse from SDK
 export TOOL=llvm
