@@ -46,7 +46,6 @@ tinyxml2.install : tinyxml2.build
 	@$(call echo_action,Deploying,$(PKG_NAME))
 	install -d $(DEPLOY_DIR)/bin
 	install -m 755 $(BUILD_DIR)/tinyxml2/$(PKG_BUILD_DIR)/xmltest* $(DEPLOY_DIR)/bin
-	cp $(ROOT_DIR)/lib/libtinyxml2*.so $(DEPLOY_DIR)/lib/.
 	@$(MAKE_STAMP)
 
 include $(WIND_USR_MK)/rules.packages.mk
