@@ -1,14 +1,7 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
-RUN dpkg --add-architecture i386 && \
-  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  g++-multilib libncurses5:i386 libc6:i386 libgcc1:i386 \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   unzip bc git wget \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  libstdc++5:i386 libstdc++6:i386 libxtst6 libgtk2.0-0:i386 libxtst6:i386 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -17,7 +10,7 @@ ENV GROUP wruser
 ENV UID 1000
 ENV USER wruser
 ENV HOME /home/${USER}
-ENV WRENV vxworks-7
+ENV WRENV vxworks/21.03
 
 COPY ./docker-entrypoint.sh /
 

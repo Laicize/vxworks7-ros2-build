@@ -1,4 +1,4 @@
-FROM vxbuild:1.0
+FROM vxbuild:latest
 
 # Environment variables
 ENV ROS_DISTRO foxy
