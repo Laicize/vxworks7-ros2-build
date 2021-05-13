@@ -28,7 +28,7 @@ with the Wind River Installer, vxprodinstaller, or any other method.
 Change directories to vxbuild directory.
 
 ```
-sudo docker build -t vxbuild:1.0 .
+sudo docker build -t vxbuild:latest .
 ```
 
 NOTE: If building on Windows please use --config core.autocrlf=input to
@@ -41,7 +41,7 @@ running the Docker container.
 Change directories to vxros2build directory where this README.md is found.
 
 ```
-sudo docker build -t vxros2build:1.0 .
+sudo docker build -t vxros2build:latest .
 ```
 
 # Run the Docker image
