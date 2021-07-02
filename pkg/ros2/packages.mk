@@ -55,7 +55,7 @@ ROS_IGNORE_DIRS=ros-visualization \
 
 
 # Ignore Python-specific packages
-#ROS_IGNORE_DIRS+= \
+ROS_IGNORE_DIRS+= \
                 ament/ament_cmake/ament_cmake_pytest \
                 osrf/osrf_pycommon \
                 ros2/demos/demo_nodes_py \
