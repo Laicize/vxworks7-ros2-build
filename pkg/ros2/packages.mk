@@ -23,6 +23,7 @@
 
 ROS2_PATCH_DIRS=eProsima/Fast-CDR \
                 eProsima/Fast-DDS \
+                eProsima/foonathan_memory_vendor \
                 ros2/console_bridge_vendor \
                 ros2/demos \
                 ros2/examples \
