@@ -5,7 +5,7 @@ include $(WIND_USR_MK)/defs.common.mk
 # for the STAMP_DIR
 include $(WIND_USR_MK)/defs.packages.mk
 
-DEFAULT_BUILD ?= sdk python unixextra asio tinyxml2 colcon ros2 turtlebot3
+DEFAULT_BUILD ?= sdk unixextra asio tinyxml2 colcon ros2 turtlebot3
 
 .PHONY: clean_buildstamps
 
