@@ -46,6 +46,7 @@ ROS_IGNORE_DIRS=ros-visualization \
                 osrf/osrf_testing_tools_cpp \
                 ros-planning \
                 ros2/mimick_vendor \
+		ros2/performance_test_fixture \
                 ros2/realtime_support \
                 ros2/rmw_connext \
                 ros2/rosidl_typesupport_connext \
