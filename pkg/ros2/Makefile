@@ -29,7 +29,7 @@ include $(WIND_USR_MK)/defs.crossbuild.mk
 PKG_NAME = ros2
 PKG_VER = foxy-release
 PKG_TYPE = git
-PKG_VER_VXWORKS = SR0660
+PKG_VER_VXWORKS = 21.03
 
 PACKAGES += $(PKG_NAME)
 
