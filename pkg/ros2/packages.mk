@@ -24,6 +24,7 @@
 ROS2_PATCH_DIRS=eProsima/Fast-CDR \
                 eProsima/Fast-DDS \
                 eProsima/foonathan_memory_vendor \
+                ros2/ament_cmake_ros \
                 ros2/console_bridge_vendor \
                 ros2/demos \
                 ros2/examples \
@@ -45,7 +46,7 @@ ROS_IGNORE_DIRS=ros-visualization \
 		ros2/rviz \
                 osrf/osrf_testing_tools_cpp \
                 ros-planning \
-		ros-tracing \
+                ros-tracing \
                 ros2/mimick_vendor \
 		ros2/performance_test_fixture \
                 ros2/realtime_support \
