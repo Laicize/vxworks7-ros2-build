@@ -25,7 +25,11 @@
 #
 include $(WIND_USR_MK)/defs.common.mk
 
-SOURCES := $(wildcard $(srcdir)/*.c)
+SOURCES := $(srcdir)/asprintf.c
+ifneq ($(WIND_RELEASE_ID),21.11)
+SOURCES = $(SOURCE) $(srcdir)/fnmatch.c $(srcdir)/memccpy.c $(srcdir)/strndup.c $(srcdir)/termios.c
+endif
+
 OBJECTS := $(SOURCES:.c=.o)
 SHOBJECTS := $(SOURCES:.c=.sho)
 
@@ -34,8 +38,10 @@ CC_FLAGS = -g
 all: cp_headers libunixextra.a libunixextra.so
 
 cp_headers:
+ifneq ($(WIND_RELEASE_ID),21.11)
 	install -m 644 $(srcdir)/termios.h $(WIND_CC_SYSROOT)/usr/h/published/UTILS_UNIX
 	install -m 644 $(srcdir)/ttycom.h $(WIND_CC_SYSROOT)/usr/h/published/UTILS_UNIX/sys
+endif
 
 libunixextra.so: $(SHOBJECTS)
 	$(CC) -shared $^ -o $@ $(CC_FLAGS)
@@ -53,8 +59,10 @@ clean:
 	@rm -rf *.o $(TARGET)
 
 install:
+ifneq ($(WIND_RELEASE_ID),21.11)
 	install -m 644 $(srcdir)/fnmatch.h $(WIND_CC_SYSROOT)/usr/h/published/UTILS_UNIX
 	install -m 644 $(srcdir)/string.h $(WIND_CC_SYSROOT)/usr/h/published/UTILS_UNIX
+endif
 	install -m 644 libunixextra.a $(WIND_CC_SYSROOT)/usr/lib/common
 	install -m 644 libunixextra.so $(WIND_CC_SYSROOT)/usr/lib/common
 	sed -i 's/-lunix -lregex/-lunix -lunixextra -lregex/g' $(WIND_CC_SYSROOT)/cc-conf/default.conf

@@ -26,7 +26,9 @@ $(error WIND_CC_SYSROOT is not defined)
 endif
 
 # introduced in 21.03
-WIND_RELEASE_ID ?= 21.03
+WIND_RELEASE_ID ?= 21.11
+WIND_RELEASE_ID_YEAR = $(word 1,$(subst ., ,$(WIND_RELEASE_ID))) 
+WIND_RELEASE_ID_MONTH = $(word 2,$(subst ., ,$(WIND_RELEASE_ID))) 
 
 ## Add missing variablse from SDK
 export TOOL=llvm
